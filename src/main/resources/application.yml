@@ -15,6 +15,13 @@ spring:
             - Path=/api/users/**
           filters:
             - RewritePath=/api/users/(?<segment>.*), /$\{segment}
+        - id: agent-service
+          uri: lb://AGENT-SERVICE
+          predicates:
+            - Path=/api/agents/**
+          filters:
+            - RewritePath=/api/agents/(?<segment>.*), /$\{segment}
+
 springdoc:
   api-docs:
     path: /v3/api-docs
@@ -23,6 +30,9 @@ springdoc:
     urls:
       - name: users
         url: /api/users/v3/api-docs
+      - name: agents
+        url: /api/agents/v3/api-docs
+
 eureka:
   client:
     register-with-eureka: true

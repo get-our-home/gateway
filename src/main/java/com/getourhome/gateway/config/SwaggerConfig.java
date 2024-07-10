@@ -11,7 +11,15 @@ public class SwaggerConfig {
     public GroupedOpenApi userServiceApi() {
         return GroupedOpenApi.builder()
                 .group("users")
-                .pathsToMatch("/users/**")
+                .pathsToMatch("/api/users/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi agentServiceApi() {
+        return GroupedOpenApi.builder()
+                .group("agents")
+                .pathsToMatch("/api/agents/**")
                 .build();
     }
 }
