@@ -22,5 +22,13 @@ public class SwaggerConfig {
                 .pathsToMatch("/api/agents/**")
                 .build();
     }
+
+    @Bean
+    public GroupedOpenApi propertyServiceApi() {
+        return GroupedOpenApi.builder()
+                .group("properties")
+                .pathsToMatch("/api/properties/**")
+                .build();
+    }
 }
 
