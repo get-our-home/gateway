@@ -21,6 +21,12 @@ spring:
             - Path=/api/agents/**
           filters:
             - RewritePath=/api/agents/(?<segment>.*), /$\{segment}
+        - id: property-service
+          uri: lb://PROPERTY-SERVICE
+          predicates:
+            - Path=/api/properties/**
+          filters:
+            - RewritePath=/api/properties/(?<segment>.*), /$\{segment}
 
 springdoc:
   api-docs:
@@ -32,6 +38,8 @@ springdoc:
         url: /api/users/v3/api-docs
       - name: agents
         url: /api/agents/v3/api-docs
+      - name: properties
+        url: /api/properties/v3/api-docs
 
 eureka:
   client:
